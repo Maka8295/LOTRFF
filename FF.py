@@ -1,3 +1,7 @@
+import sys
+import random as rd
+import time
+
 class Stats:
 
     def __init__(self, HP, MP, Str, Int, Def, Spirit, Luck, Speed):
@@ -112,13 +116,13 @@ job_stats = {
 
 job_skills = {
 
-    "White Mage": ["Attack", "Block", "Cure"],
+    "White Mage": ["Attack", "Block", "Cure", "Item"],
 
-    "Black Mage": ["Attack", "Block", "Fire"],
+    "Black Mage": ["Attack", "Block", "Fire", "Item"],
 
-    "Knight": ["Attack", "Block"],
+    "Knight": ["Attack", "Block", "Item"],
 
-    "Burglar": ["Attack", "Block", "Steal"],
+    "Burglar": ["Attack", "Block", "Steal", "Item"],
 
 }
 
@@ -138,17 +142,61 @@ class Character:
 
         self.skills = None
 
- 
+        self.item = None
+
+        self.xp = None
+
+        self.lvl = None
+
+
+orc = Character("Orc")
+orc.stats = Stats(70, 0 , 20, 0, 30, 30, 5, 10)
+orc.skills = ["Attack"]
+
+
+cDwarf = Character("Chaos Dwarf")
+
+cElf = Character("Chaos Elf")
+
+easter = Character("Easterling")
+
+wight = Character("Wight")
+
+warg = Character("Warg")
+
+spider = Character("Spider")
+
+orcCap = Character("Orc Captain")
+
+
+
+watcher = Character("Watcher of the Depths")
+watcher.stats = Stats(1200, 300 , 50, 50, 50, 50, 10, 15)
+watcher.skills = ["Attack","Fire"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 party = []
 
- 
+print("Elrond, Lord of Imladris has entrusted your party with a dangerous quest.\nYou are to investigate reports of strange sightings at the base of the mountains of Celebdil.\nWho is departing on this quest?\n") 
 
 for i in range(4):
 
     character = Character(input("Enter name: "))
-
- 
+    character.lvl = 1
+    character.xp = 0 
 
     while True:
 
@@ -186,29 +234,23 @@ for i in range(4):
 
  
 
-    if character.name == "Bilbo" or "Frodo" and character.race == "Hobbit":
+   #if (character.name == "Bilbo" or character.name =="Frodo") and character.race == "Hobbit":
+        #character.skills.append("Invisibility")
 
-        character.skills.append("Invisibility")
+    #elif character.name == "Gandalf" and character.race == "Maia":
+        #character.skills.append("Fire of Anor")
 
-    if character.name == "Gandalf" and character.race == "Maia":
+        #elif character.name == "Gimli" and character.race == "Dwarf":
+    #character.skills.append("Toss me!")
 
-        character.skills.append("Fire of Anor")
+        #elif character.name == "Cloud" and character.job == "Knight":
+        #character.skills.append("Omnislash")
 
-    if character.name == "Gimli" and character.race == "Dwarf":
+        #elif character.name == "Legolas" and character.race == "Elf":
+        #character.skills.append("Double Strike")
 
-        character.skills.append("Toss me!")
-
-    if character.name == "Cloud" and character.job == "Knight":
-
-        character.skills.append("Omnislash")
-
-    if character.name == "Legolas" and character.race == "Elf":
-
-        character.skills.append("Double Strike")
-
-    if character.name == "Aragorn" and character.race == "Man":
-
-        character.skills.append("Blessings of Elrond")
+        #elif character.name == "Aragorn" and character.race == "Man":
+        #character.skills.append("Blessings of Elrond")
 
  
 
@@ -259,29 +301,115 @@ for i in range(4):
             break
 
  
+if len(party) == 4:
+    print(f"\n{party[0].name}, {party[1].name}, {party[2].name} and {party[3].name} set", end ="")
+elif len(party) == 3:
+    print(f"\n{party[0].name}, {party[1].name}, and {party[2].name} set", end = "")
+elif len(party) == 2:
+    print(f"\n{party[0].name} and {party[1].name} set", end="")
+else:
+    print(f"\n{party[0].name} sets", end="")
+print(" out from Imladris, horses laden with lembas and supplies have been gifted to the party from Lord Elrond.\n The party makes south, following the edge of the Misty Mountains.\n")
+
+
+
+def encounter():
+    enemy_no = rd.randint(1,4)
+    enemies =  [orc]
+    spawn = []
+    turn_order = []
+    for i in range(enemy_no):
+        spawn.append(rd.choice(enemies))
+    
+    turn_order.extend(party)
+    turn_order.extend(spawn)
+
+    turn_order = sorted(turn_order, key =lambda character: character.stats.Speed, reverse=True)
+    active_party = []
+    active_party.extend(party)
+    
+
+    for _ in spawn:
+        print(_.name," ", end="")
+    print(f"have attacked your party!\n\n")
+    
+    while True:
+        for char in turn_order:
+            if char in enemies:
+                en_action = rd.choice(char.skills)   #NEED TO REMOVE BLOCK FOR NOW!
+                if en_action == "Block":
+                    ...
+                if en_action == "Attack":
+                    en_target = rd.choice(active_party)
+                    en_dmg = vars(char.stats)["Str"] + rd.randint(-5,5)
+                    vars(en_target.stats)["HP"] -= en_dmg
+
+                    if vars(en_target.stats)["HP"] < 0:
+                        active_party.remove(en_target)
+
+                print(f"{char.name} uses {en_action} on {en_target.name} dealing {en_dmg} damage!\n")
+            
+            elif char in active_party: #start of player turn #turn is skipped if not in active
+                #print all party members HP:
+                for member in party: #want to list even in-active party mems
+                    print(f"{member.name} - HP: {vars(member.stats)['HP']}, MP: {vars(member.stats)['MP']}")
+
+                while True:
+                    action = input(f"What will {char.name} do?\n{char.skills}\n\n")
+                    if action in char.skills:
+                        break
+                    print("\nInvalid selection!\n")
+                
+                if action == "Attack":
+                    dmg = vars(char.stats)["Str"] + rd.randint(-5,5)
+                    while True:
+                        target = input("Select Target:\n")  # if two orcs, first orc in turn order is targeted
+                        selected_target = None
+                        for target_char in spawn:
+                            if target == target_char.name:
+                                selected_target = target_char
+                                break
+                
+                        if selected_target:
+                            vars(selected_target.stats)["HP"] -= dmg
+                            print(f"{char.name} deals {dmg} damage to {selected_target.name}")
+                            if vars(selected_target.stats)["HP"] < 0:
+                                spawn.remove(selected_target)
+                            break
+                        else:
+                            print("Invalid target!\n")
+
+
+                elif action == "Fire":
+                    ...
+                
+                elif action == "Block":
+                    ...
+                
+                elif action == "Cure":
+                    ...                    
+    
+                elif action == "Item":
+                    ...
+
+        if not active_party:
+            sys.exit("Oh dear, your party is dead!")
+        elif not spawn:
+            print("Enemies defeated!")
+            break
+encounter()
+#HP, MP, Str, Int, Def, Spirit, Luck, Speed
+#print(vars(orc.stats)["HP"])
+
+#print(vars(character.stats))
+
+#print(character.name)
+
+#print(character.job)
+
+#print(character.skills)
+
+#print(character.race)
 
  
 
-print(vars(character.stats))
-
-print(character.name)
-
-print(character.job)
-
-print(character.skills)
-
-print(character.race)
-
- 
-
-while True:
-
-    dmg = int(input("Enter DMG:\n"))
-
-    vars(character.stats)["HP"] = int(vars(character.stats)["HP"]) - dmg
-
-    print(f"Remaining HP: {vars(character.stats)['HP']}")
-
-    if int(vars(character.stats)["HP"]) <= 0:
-
-        print("You died!\n")
