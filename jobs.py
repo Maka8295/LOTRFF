@@ -159,7 +159,38 @@ class Bard(Levels):
             "Luck": 10,
         }
 
-#char = WhiteMage("Maka", "Elf")
-#print(char.lvl, char.xp, char.name, char.race)
-#char.leveler(5000)
-#print(char.lvl)
+class Orc:
+    def __init__(self):
+        self.name = "Orc"
+        self.skills = ["Attack", "Block"]
+        self.stats = {
+            "HP": 50, 
+            "MP": 0,
+            "Str": 20,    
+            "Int": 0,
+            "Def": 20, 
+            "Spi": 20,
+            "Spd": 15,
+            "Eva": 5,
+            "Luck": 5,
+        }
+
+    
+
+class ChaosDwarf:
+    ...
+class ChaosElf:
+    ...
+class Easterling:
+    ...
+class Wight:
+    ...
+class Spider:
+    ...
+class OrcCap:
+    ...
+class Watcher:
+    ...
+class Warg:
+    ...
+
