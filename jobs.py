@@ -13,13 +13,19 @@ class Levels:
     
     def leveler(self, xp_gained):
         self.xp += xp_gained
-        if self.lvl < 50:
-            for val in self.xp_table:
-                if self.xp >= val:
-                    self.lvl = self.xp_table.index(val) + 2
+        leveled_up = False
+        while self.lvl < 50 and self.xp >= self.xp_table[self.lvl -1]:
+            self.lvl += 1
+            leveled_up = True
+        if leveled_up:
+            self.statter()
 
 
-
+    def statter(self):
+        if self.lvl > 1:
+            for key, value in self.stats.items():
+                if key not in  ["Eva", "Luck", "HP", "MP"]:
+                    self.stats[key] += rd.randint(0,2) * self.lvl
 
 
 
@@ -43,9 +49,13 @@ class WhiteMage(Levels):
 
         super().__init__(xp, lvl)
         self.skills = ["Attack", "Cure", "Block", "Item"]
+        self.inv = ["Lembas"]
+        self.block = False
         self.stats = {
             "HP": 50, 
+            "HPMax": 50,
             "MP": 100,
+            "MPMax": 100,
             "Str": 10,    
             "Int": 100,
             "Def": 20, 
@@ -69,9 +79,13 @@ class BlackMage(Levels):
         super().__init__(xp, lvl) 
 
         self.skills = ["Attack", "Fire", "Ice", "Lightning", "Block", "Item"]
+        self.inv = ["Lembas"]
+        self.block = False
         self.stats = {
-            "HP": 40, 
+            "HP": 40,
+            "HPMax": 40,
             "MP": 120,
+            "MPMax": 120,
             "Str": 5,    
             "Int": 120,
             "Def": 20, 
@@ -95,9 +109,13 @@ class Knight(Levels):
         super().__init__(xp,lvl)
  
         self.skills = ["Attack", "Block", "Item"]
+        self.inv = ["Lembas"]
+        self.block = False
         self.stats = {
-            "HP": 150, 
+            "HP": 150,
+            "HPMax": 150,
             "MP": 20,
+            "MPMax": 20,
             "Str": 120,    
             "Int": 20,
             "Def": 150, 
@@ -121,9 +139,13 @@ class Burglar(Levels):
         super().__init__(xp,lvl)
 
         self.skills = ["Attack", "Steal", "Block", "Item"]
+        self.inv = ["Lembas"]
+        self.block = False
         self.stats = {
-            "HP": 70, 
+            "HP": 70,
+            "HPMax": 70,
             "MP": 10,
+            "MPMax": 10,
             "Str": 70,    
             "Int": 20,
             "Def": 40, 
@@ -147,9 +169,13 @@ class Bard(Levels):
         super().__init__(xp,lvl)
 
         self.skills = ["Attack", "Song", "Block", "Item"]
+        self.inv = ["Lembas"]
+        self.block = False
         self.stats = {
-            "HP": 60, 
+            "HP": 60,
+            "HPMax": 60,
             "MP": 20,
+            "MPMax": 20,
             "Str": 65,    
             "Int": 20,
             "Def": 40, 
@@ -163,10 +189,11 @@ class Orc:
     def __init__(self):
         self.name = "Orc"
         self.skills = ["Attack", "Block"]
+        self.block = False
         self.stats = {
             "HP": 50, 
             "MP": 0,
-            "Str": 20,    
+            "Str": 50,    
             "Int": 0,
             "Def": 20, 
             "Spi": 20,
