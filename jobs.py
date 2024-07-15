@@ -48,7 +48,7 @@ class WhiteMage(Levels):
         self.race = race
 
         super().__init__(xp, lvl)
-        self.skills = ["Attack", "Cure", "Block", "Item"]
+        self.skills = ["Attack", "Cure", "Holy", "Block", "Item"]
         self.inv = ["Lembas"]
         self.block = False
         self.stats = {
@@ -211,13 +211,64 @@ class ChaosElf:
 class Easterling:
     ...
 class Wight:
-    ...
+    def __init__(self):
+        self.name = "Wight"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 100, 
+            "MP": 0,
+            "Str": 40,    
+            "Int": 0,
+            "Def": 50, 
+            "Spi": 50,
+            "Spd": 25,
+            "Eva": 50,
+            "Luck": 5,
+        }
+
+
+
+
+
+
+
+
+
 class Spider:
-    ...
+    def __init__(self):
+        self.name = "Spider"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 40, 
+            "MP": 0,
+            "Str": 50,    
+            "Int": 0,
+            "Def": 60, 
+            "Spi": 30,
+            "Spd": 30,
+            "Eva": 25,
+            "Luck": 5,
+        }
 class OrcCap:
     ...
 class Watcher:
-    ...
+    def __init__(self):
+        self.name = "Watcher"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 3000, 
+            "MP": 0,
+            "Str": 250,    
+            "Int": 0,
+            "Def": 200, 
+            "Spi": 30,
+            "Spd": 999,
+            "Eva": 25,
+            "Luck": 15,
+        }
 class Warg:
     ...
 

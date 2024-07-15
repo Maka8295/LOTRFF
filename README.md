@@ -10,3 +10,22 @@ Turn based combat with healing / buff items, physical and magical attacks, and b
 Levelling up system in which XP earned from encounters will level up your characters and increase their stats.
 
 Ability to rest at campsites to restore HP and MP.
+
+Skills:
+
+Attack - Deal physical damage based with characters strength against targets defense, can critical depending on luck, and will miss depending on evasion.
+
+Block - Reduces incoming damage by roughly half until next turn
+
+Item - Use any item held in inventory, each character has a seperate inventory
+
+Song - Heal all members in active party by an ammount based on characters inteligence, costs 5 MP
+
+Holy - Instantly kills any undead monster
+
+Cure - Heals HP of target party member by large ammount, based on characters inteligence, costs 10 MP
+
+Steal - Steals gil from enemies based on users speed.
+
+Fire, Ice, Lightning - Deal magic based damage with characters Inteligence against targets spirit, costs 10 MP. Different monsters are weak and resistant to some attacks!
+
