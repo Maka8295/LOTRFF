@@ -205,11 +205,69 @@ class Orc:
     
 
 class ChaosDwarf:
-    ...
+    def __init__(self):
+        self.name = "Chaos Dwarf"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 250, 
+            "MP": 0,
+            "Str": 120,    
+            "Int": 0,
+            "Def": 120, 
+            "Spi": 120,
+            "Spd": 20,
+            "Eva": 5,
+            "Luck": 5,
+        }
+
+
+
 class ChaosElf:
-    ...
+    def __init__(self):
+        self.name = "Chaos Elf"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 200, 
+            "MP": 0,
+            "Str": 100,    
+            "Int": 0,
+            "Def": 100, 
+            "Spi": 100,
+            "Spd": 35,
+            "Eva": 25,
+            "Luck": 5,
+        }
+
+
+
+
+
+
 class Easterling:
-    ...
+    def __init__(self):
+        self.name = "Easterling"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 80, 
+            "MP": 0,
+            "Str": 65,    
+            "Int": 0,
+            "Def": 50, 
+            "Spi": 40,
+            "Spd": 20,
+            "Eva": 15,
+            "Luck": 5,
+        }
+
+
+
+
+
+
+
 class Wight:
     def __init__(self):
         self.name = "Wight"
@@ -252,7 +310,21 @@ class Spider:
             "Luck": 5,
         }
 class OrcCap:
-    ...
+    def __init__(self):
+        self.name = "Orc Captain"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 700, 
+            "MP": 0,
+            "Str": 200,    
+            "Int": 0,
+            "Def": 120, 
+            "Spi": 120,
+            "Spd": 40,
+            "Eva": 10,
+            "Luck": 5,
+        }
 class Watcher:
     def __init__(self):
         self.name = "Watcher"
@@ -261,7 +333,7 @@ class Watcher:
         self.stats = {
             "HP": 3000, 
             "MP": 0,
-            "Str": 250,    
+            "Str": 350,    
             "Int": 0,
             "Def": 200, 
             "Spi": 30,
@@ -270,5 +342,18 @@ class Watcher:
             "Luck": 15,
         }
 class Warg:
-    ...
-
+    def __init__(self):
+        self.name = "Warg"
+        self.skills = ["Attack", "Block"]
+        self.block = False
+        self.stats = {
+            "HP": 200, 
+            "MP": 0,
+            "Str": 80,    
+            "Int": 0,
+            "Def": 80, 
+            "Spi": 80,
+            "Spd": 35,
+            "Eva": 20,
+            "Luck": 5,
+        }
