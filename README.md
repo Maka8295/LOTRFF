@@ -1,7 +1,7 @@
 # LOTRFF
 My final project for CS50P, a text-based turn-based RPG set in Middle Earth with Final Fantasy themes (because I am very original). Focus has been put on coding the working parts rather than balance, so it may be too easy, random, or too hard in parts!
 
-###Features###
+#Features#
 
 - Ability to make a party of up to 4 characters each with a race, job and name. Job will affect your characters stats and abilities. Hidden abilities and stat boosts exist for certain combinations of names, races and jobs!
 
@@ -14,7 +14,7 @@ My final project for CS50P, a text-based turn-based RPG set in Middle Earth with
 - You can pass an argument after "game.py" to enable cheats for increased Gil or EXP!
 
 
-###Skills###
+#Skills#
 
 - Attack - Deal physical damage based with characters strength against targets defense, can critical depending on luck, and will miss depending on evasion.
 
@@ -39,7 +39,9 @@ My final project for CS50P, a text-based turn-based RPG set in Middle Earth with
 - Secret items are available from Tom to increase evasion and luck stats!
 
 
-###How to install###
+#How to install#
+
+You must have Python installed to play the game!
 
 Clone this repository by pasting the following into your terminal:
 
@@ -48,7 +50,7 @@ git clone https://github.com/Maka8295/LOTRFF
 ```
 Or you can download simply download (or copy and paste) the game.py file, jobs.py file and the story.py file, make sure they are all in the same directory!
 
-###How to play###
+#How to play#
 
 Move to the directory that you cloned the repository or downloaded the files and run the following in your terminal.
 ```
