@@ -13,6 +13,7 @@ My final project for CS50P, a text-based turn-based RPG set in Middle Earth with
 
 - You can pass an argument after "game.py" to enable cheats for increased Gil or EXP!
 
+- Shop from merchants to buy healing items, weapon upgrades and tents.
 
 ## Skills
 
