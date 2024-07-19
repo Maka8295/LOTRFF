@@ -3,6 +3,14 @@ My final project for CS50P, a text-based turn-based RPG set in Middle Earth with
 
 #### Video Demo:  https://www.youtube.com/watch?v=y0XCcQgORzM
 
+## How it works
+
+My project has three main files, jobs.py which contains the classes for each job that you can use in the character creator as well as the stats of the enemies. I use class methods to handle the levelling and increase of stats for the party members. Your skills and items for each character are also held within each class.
+
+project.py is the main file for the game, which defines the logic for the combat system, shops, character creation etc. The number of tents and gill are also stored here. The way the game works is by passing a list, containing each of your party members (class objects) into certain functions, such as an encounter function, once the encounter ends the function returns your party list with updated EXP, values, items, Gil and so on. It's also possible to pass in certain enemies to the encounter function, so I can have some control over what the party encounters rather than being completely random.
+
+Finally is story.py which contains a tiny bit of logic for randomizing the 3 different merchants you can encounter, but mainly just text for the story.
+
 ## Features
 
 - Ability to make a party of up to 4 characters each with a race, job and name. Job will affect your characters stats and abilities. Hidden abilities and stat boosts exist for certain combinations of names, races and jobs!
