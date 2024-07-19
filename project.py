@@ -907,9 +907,11 @@ def main():
 
     i = 0
     while i <= 16:
-        choice = rd.choice([1,2,3,4])
-        if choice == 1 or choice ==  2:
-            party, gil = encounterfull(party, gil, [orc, spider, wight, warg, easterling, chaosE, chaosD])
+        choice = rd.choice([1, 2, 3, 4])
+        if choice == 1 or choice == 2:
+            party, gil = encounterfull(
+                party, gil, [orc, spider, wight, warg, easterling, chaosE, chaosD]
+            )
         elif choice == 3:
             party, gil, tents = shop(party, gil, tents)
         elif choice == 4:
@@ -938,9 +940,9 @@ def encounterfull(party, gil, enemies):
         member.statter()
         member.block = 0  # reset block states
         print(f"{member.name} is level {member.lvl} and has {member.xp} EXP")
-    print("\nYour party continues south...\n")   
+    print("\nYour party continues south...\n")
     return party, gil
-        
 
 
-main()
+if __name__ == "__main__":
+    main()

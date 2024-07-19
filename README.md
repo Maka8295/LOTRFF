@@ -1,6 +1,8 @@
 # LOTRFF
 My final project for CS50P, a text-based turn-based RPG set in Middle Earth with Final Fantasy themes (because I am very original). Focus has been put on coding the working parts rather than balance, so it may be too easy, random, or too hard in parts!
 
+#### Video Demo:  https://www.youtube.com/watch?v=y0XCcQgORzM
+
 ## Features
 
 - Ability to make a party of up to 4 characters each with a race, job and name. Job will affect your characters stats and abilities. Hidden abilities and stat boosts exist for certain combinations of names, races and jobs!
@@ -11,7 +13,7 @@ My final project for CS50P, a text-based turn-based RPG set in Middle Earth with
 
 - Ability to rest at campsites to restore HP and MP.
 
-- You can pass an argument after "game.py" to enable cheats for increased Gil or EXP!
+- You can pass an argument after "project.py" to enable cheats for increased Gil or EXP!
 
 - Shop from merchants to buy healing items, weapon upgrades and tents.
 
@@ -47,9 +49,9 @@ You must have Python installed to play the game!
 Clone this repository by pasting the following into your terminal:
 
 ```
-git clone https://github.com/Maka8295/LOTRFF
+git clone https://github.com/Maka8295/LOTRFF.git
 ```
-Or you can download simply download (or copy and paste) the game.py file, jobs.py file and the story.py file, make sure they are all in the same directory!
+Or you can download simply download (or copy and paste) the project.py file, jobs.py file and the story.py file, make sure they are all in the same directory!
 
 ## How to play
 
@@ -59,9 +61,9 @@ cd path/to/your/directory
 ```
 
 ```
-python game.py
+python project.py
 ```
-Optionally enter the secret codes after game.py for cheats! (You will have to find them in the source code!)
+Optionally enter the secret codes after project.py for cheats! (You will have to find them in the source code!)
 
 Enter names exactly how they appear on screen, for example if prompted for a target, to target an enemy Orc, you must input exactly "Orc".
 
