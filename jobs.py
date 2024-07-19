@@ -299,7 +299,7 @@ class Spider:
         self.skills = ["Attack", "Block"]
         self.block = False
         self.stats = {
-            "HP": 40, 
+            "HP": 80, 
             "MP": 0,
             "Str": 50,    
             "Int": 0,

@@ -16,3 +16,9 @@ def dynamicstory():
     tom = "The party notices a tall blue hat bobbing up and down in a patch of tall grass in front of them.\nThe strange man, albeit friendly refuses to make his name known.\nHe offers the party a variety of items he has collected."
     weights = [0.4, 0.4, 0.2]
     return rd.choices([dwarf, elf, tom], weights=weights, k=1) #returns a list
+
+story3 = "An Orc Captain assails the party as they near their destination!"
+
+story4 = "The party reaches a large body of water near the base of the mountain.\nThere is evidence that many dwarves fled from the surrounding mines and into the wilderland.\nThe surface of the water begins to bubble...\n"
+
+story5 = "The Watcher of the lake has been defeated, and peace restored to Khazad-Dum. The Elves and Dwarves corrupted by its strange magic have been cured... for now..."
